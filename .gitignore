@@ -40,3 +40,36 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Mock
+# compiled output
+/mock/dist
+/mock/node_modules
+
+# Logs
+/mock/logs
+/mock/*.log
+/mock/npm-debug.log*
+/mock/pnpm-debug.log*
+/mock/yarn-debug.log*
+/mock/yarn-error.log*
+/mock/lerna-debug.log*
+/mock/# OS
+/mock/.DS_Store
+/mock/# Tests
+/mock/coverage
+/mock/.nyc_output
+/mock/# IDEs and editors
+/mock/.idea
+/mock/.project
+/mock/.classpath
+/mock/.c9/
+/mock/*.launch
+/mock/.settings/
+/mock/*.sublime-workspace
+/mock/# IDE - VSCode
+/mock/.vscode/*
+/mock/!.vscode/settings.json
+/mock/!.vscode/tasks.json
+/mock/!.vscode/launch.json
+/mock/!.vscode/extensions.json
