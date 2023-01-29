@@ -5,12 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContainerComponent } from './rxjs/container/container.component';
+import { OutputComponent } from './rxjs/output/output.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RxjsComponent
+    RxjsComponent,
+    OutputComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
