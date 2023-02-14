@@ -1,8 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Car } from "../types/car.interface";
-import { Observable } from "rxjs";
-
 
 @Injectable({providedIn: 'root'})
 export class HttpService{

@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { switchMap } from "rxjs";
 import { HttpService } from "src/app/http-service/http.service";
-import { Car } from "src/app/types/car.interface";
 
 
 @Injectable({providedIn: 'root'})

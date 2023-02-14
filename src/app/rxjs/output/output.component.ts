@@ -10,5 +10,5 @@ import { CarState } from "src/app/ngrx/reducers/car/car.reducer";
 })
 export class OutputComponent{
   @Input()
-  public carList: CarState | null = null;
+  public carList: CarState | undefined;
 }
