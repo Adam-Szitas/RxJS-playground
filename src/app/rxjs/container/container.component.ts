@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { Car } from "src/app/types/car.interface";
+import { Observable } from "rxjs";
+import { CarState } from "src/app/ngrx/reducers/car/car.reducer";
+import { FacadeService } from "../facade/facade.service";
 
 
 @Component({
@@ -8,8 +10,15 @@ import { Car } from "src/app/types/car.interface";
 })
 export class ContainerComponent{
 
+  constructor(private facadeService: FacadeService){}
 
   @Input()
-  public carList: Car[] | null = null;
+  public carList$: Observable<CarState> = this.facadeService.carList.get$;
+
+
+  // Emitting new values to state
+  public onCarInsert(car: CarState): void{
+    this.facadeService.carList.insert(car);
+  }
 
 }
