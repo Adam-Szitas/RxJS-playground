@@ -2,10 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
-export class HttpService{
-  private baseApi: string = 'http://localhost:3000/api/';
+export abstract class HttpService{
+  protected baseApi: string = 'http://localhost:3000/api/';
 
-  constructor(private http: HttpClient){}
+  protected abstract updateLogs(): Promise<void>;
+
+  constructor(protected http: HttpClient){}
 
   public getCarList() {
     const headers = new HttpHeaders();

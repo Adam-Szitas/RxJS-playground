@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +11,9 @@ import { OutputComponent } from './rxjs/output/output.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { StoreModule } from '@ngrx/store';
 import { PushModule } from '@ngrx/component';
+import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
+import { LanguageInterceptor } from './interceptors/language.interceptor';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,21 @@ import { PushModule } from '@ngrx/component';
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25
-    })
+    }),
+    TranslateModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
